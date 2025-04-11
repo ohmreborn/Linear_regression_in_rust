@@ -83,9 +83,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         Ok(()) => println!("load model sucess"),
         Err(e) => panic!("{}",e)
     };
-    // for p in new_varmap.all_vars(){
-    //     println!("{}",p);
-    // }
+    for p in new_varmap.all_vars(){
+        println!("{}",p);
+    }
 
     Ok(())
 }
