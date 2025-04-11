@@ -58,34 +58,34 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         }
     }
 
-    // println!("\n--------------------------------------------\n");
-    // for p in varmap.all_vars(){
-    //     println!("{}",p);
-    // }
+    println!("\n--------------------------------------------\n");
+    for p in varmap.all_vars(){
+        println!("{}",p);
+    }
     
-    // // save a model
-    // let path: PathBuf = PathBuf::from("model.safetensors");
-    // match varmap.save(path.clone()){
-    //     Ok(()) => println!("save file {} sucess",path.display()),
-    //     Err(e) => {
-    //         println!("cannot save file");
-    //         panic!("{}",e);
-    //     }
-    // };
+    // save a model
+    let path: PathBuf = PathBuf::from("model.safetensors");
+    match varmap.save(path.clone()){
+        Ok(()) => println!("save file {} sucess",path.display()),
+        Err(e) => {
+            println!("cannot save file");
+            panic!("{}",e);
+        }
+    };
 
-    // println!("\n--------------------------------------------\n");
+    println!("\n--------------------------------------------\n");
 
-    // // load a model
-    // let mut new_varmap: VarMap = VarMap::new();
-    // let new_vb = VarBuilder::from_varmap(&new_varmap, DType::F32, &device);
-    // let _new_model:Linear = linear(1,1,new_vb)?;
-    // match new_varmap.load("model.safetensors"){
-    //     Ok(()) => println!("load model sucess"),
-    //     Err(e) => panic!("{}",e)
-    // };
-    // for p in new_varmap.all_vars(){
-    //     println!("{}",p);
-    // }
+    // load a model
+    let mut new_varmap: VarMap = VarMap::new();
+    let new_vb = VarBuilder::from_varmap(&new_varmap, DType::F32, &device);
+    let _new_model:Linear = linear(1,1,new_vb)?;
+    match new_varmap.load("model.safetensors"){
+        Ok(()) => println!("load model sucess"),
+        Err(e) => panic!("{}",e)
+    };
+    for p in new_varmap.all_vars(){
+        println!("{}",p);
+    }
 
     Ok(())
 }
