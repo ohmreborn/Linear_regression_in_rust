@@ -32,7 +32,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     // create a data
     let n_sample:f32 = 100.0;
     let div: Tensor = Tensor::new(&[n_sample],&device)?;
-    let mut x: Tensor = Tensor::arange(0f32, n_sample, &device)?
+    let x: Tensor = Tensor::arange(0f32, n_sample, &device)?
         .reshape((100,1))?
         .broadcast_div(&div)?;
     let m: Tensor = Tensor::new(&[[3f32]], &device)?;
