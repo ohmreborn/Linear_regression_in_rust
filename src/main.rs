@@ -42,6 +42,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .broadcast_add(&c)?
         .broadcast_add(&noise)?;
     let data_loader: Vec<(Tensor,Tensor)> = get_batches(x, y, batch_size)?;
+    
     // // initialize a model optimizer
     let varmap: VarMap = VarMap::new();
     let vb = VarBuilder::from_varmap(&varmap, DType::F32, &device);
